@@ -20,18 +20,28 @@ public class Pickup extends SubsystemBase {
     beltSqushLow = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, 0 , 1);
     
   }
+
+  // pushes out piston at intake.
   public void SqushLow(){
   beltSqushLow.set(Value.kForward);
   }
+
+  // pulls in piston at intake.
   public void deSqushLow(){
 beltSqushLow.set(Value.kReverse);
   }
+
+  // makes intake go inward, pulling in notes.
   public void Eat(){
     goInOut.set(0.5);
   }
+
+  // makes intake go out, pushing out notes.
   public void Spit(){
     goInOut.set(-1);
   }
+  
+  // stops intake.
   public void Stop(){
     goInOut.set(0);
   }

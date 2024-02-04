@@ -19,37 +19,47 @@ public class Climb extends SubsystemBase {
      //private final MotorControllerGroup left = new MotorControllerGroup(Lmotor1, Lmotor2);
   public Climb() {}
 
+// left claw goes up.
   public void clawsUpL(){
     Lmotor1.set(0.5);
     Lmotor2.set(0.5);
    
   }
 
+// left claw goes down.
   public void clawsDownL(){
     Lmotor1.set(-0.5);
     Lmotor2.set(-0.5);
    
   }
+
+  // right claw goes up.
   public void clawsUpR(){
    
     Rmotor1.set(0.5);
     Rmotor2.set(0.5);
   }
 
+ // right claw goes down.
   public void clawsDownR(){
    
     Rmotor1.set(-0.5);
     Rmotor2.set(-0.5);
   }
+
+  // left claw stops moving.
   public void StopL(){
     Lmotor1.set(0);
     Lmotor2.set(0);
    
   }
+
+  // right claw stops moving.
   public void StopR(){
     Rmotor1.set(0);
     Rmotor2.set(0);
   }
+  
   /**
    * Example command factory method.
    *

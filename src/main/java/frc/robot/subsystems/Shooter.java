@@ -20,21 +20,31 @@ public class Shooter extends SubsystemBase {
     beltSqushTop = new DoubleSolenoid(PneumaticsConstants.kModule1 , PneumaticsModuleType.CTREPCM, 2 , 3);
   }
 
+   // pushes piston at shooter out.
    public void SqushTop(){
   beltSqushTop.set(Value.kForward);
   }
+
+  // pulls piston at shooter in.
   public void deSqushTop(){
 beltSqushTop.set(Value.kReverse);
   }
+
+  // makes the Shooter shoot at half speed
   public void shoot(){
     shootSpeed.set(0.5);
   }
+
+  // makes the Shooter shoot at full speed
   public void shootFast(){
     shootSpeed.set(1);
   }
+
+  // stops shooter from shooting
   public void Stop(){
     shootSpeed.set(0);
   }
+  
   /**
    * Example command factory method.
    *

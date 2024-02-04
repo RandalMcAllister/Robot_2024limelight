@@ -4,44 +4,41 @@
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.Climb;
+import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj2.command.Command;
 
-
 /** An example command that uses an example subsystem. */
-public class armsUpL extends Command {
+public class highPistonOff extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final Climb m_Climb;
+  private final Shooter m_Shooter;
 
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public armsUpL(Climb Climb) {
-    m_Climb = Climb;
+  public highPistonOff(Shooter Shooter) {
+    m_Shooter = Shooter;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Climb);
+    addRequirements(m_Shooter);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-   
+   m_Shooter.deSqushTop();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
-  
   @Override
   public void execute() {
-   m_Climb.clawsUpL();
-  
+    
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-     m_Climb.StopL();
+    
   }
 
   // Returns true when the command should end.
