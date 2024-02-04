@@ -12,6 +12,20 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
+//commands
+import frc.robot.commands.armsDownL;
+import frc.robot.commands.armsDownR;
+import frc.robot.commands.armsUpL;
+import frc.robot.commands.armsUpR;
+import frc.robot.commands.highPistonOff;
+import frc.robot.commands.highPistonOn;
+import frc.robot.commands.lowIn;
+import frc.robot.commands.lowOut;
+import frc.robot.commands.lowPistonOff;
+import frc.robot.commands.lowPistonOn;
+import frc.robot.commands.ShootFull;
+import frc.robot.commands.shootSlow;
+
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
