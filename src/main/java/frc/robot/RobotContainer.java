@@ -11,8 +11,10 @@ import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
-//commands
+import edu.wpi.first.wpilibj.Joystick;
+//import commands
 import frc.robot.commands.armsDownL;
 import frc.robot.commands.armsDownR;
 import frc.robot.commands.armsUpL;
@@ -25,6 +27,11 @@ import frc.robot.commands.lowPistonOff;
 import frc.robot.commands.lowPistonOn;
 import frc.robot.commands.ShootFull;
 import frc.robot.commands.shootSlow;
+
+//import subsystems
+import frc.robot.subsystems.Climb;
+import frc.robot.subsystems.Pickup;
+import frc.robot.subsystems.Shooter;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -45,6 +52,43 @@ public class RobotContainer {
     // Configure the trigger bindings
     configureBindings();
   }
+  // subsystems
+    private final Climb m_Climb = new Climb();
+    private final Pickup m_Pickup = new Pickup();
+    private final Shooter m_Shooter = new Shooter();
+
+  // Joysticks
+    private final Joystick buttonBoard = new Joystick(1);
+    private final Joystick StickOfHope = new Joystick(0);
+
+  //Commands
+    private final armsDownL m_ArmsDownL = new armsDownL(m_Climb);
+    private final armsDownR m_ArmsDownR = new armsDownR(m_Climb);
+    private final armsUpL m_ArmsUpL = new armsUpL(m_Climb);
+    private final armsUpR m_ArmsUpR = new armsUpR(m_Climb);
+    private final shootSlow m_ShootSlow = new shootSlow(m_Shooter);
+    private final ShootFull m_ShootFull = new ShootFull(m_Shooter);
+    private final highPistonOn m_HighPistonOn = new highPistonOn(m_Shooter);
+    private final highPistonOff m_HighPistonOff = new highPistonOff(m_Shooter);
+    private final lowIn m_LowIn = new lowIn(m_Pickup);
+    private final lowOut m_LowOut = new lowOut(m_Pickup);
+    private final lowPistonOn m_LowPistonOn = new lowPistonOn(m_Pickup);
+    private final lowPistonOff m_LowPistonOff = new lowPistonOff(m_Pickup);
+
+
+    //Button setup
+    private JoystickButton armsDownL = new JoystickButton(buttonBoard, 0);
+    private JoystickButton armsDownR = new JoystickButton(buttonBoard, 1);
+    private JoystickButton armsUpL = new JoystickButton(buttonBoard, 2);
+    private JoystickButton armsUpR = new JoystickButton(buttonBoard, 3);
+    private JoystickButton shootSlow = new JoystickButton(buttonBoard, 4);
+    private JoystickButton shootFast = new JoystickButton(buttonBoard, 5);
+    private JoystickButton highPistonOn = new JoystickButton(buttonBoard, 6);
+    private JoystickButton highPistonOff = new JoystickButton(buttonBoard, 7);
+    private JoystickButton lowIn = new JoystickButton(buttonBoard, 8);
+    private JoystickButton lowOut = new JoystickButton(buttonBoard, 9);
+    private JoystickButton lowPistonOn = new JoystickButton(buttonBoard, 10);
+    private JoystickButton lowPistonOff = new JoystickButton(buttonBoard, 11);
 
   /**
    * Use this method to define your trigger->command mappings. Triggers can be created via the
@@ -56,6 +100,11 @@ public class RobotContainer {
    * joysticks}.
    */
   private void configureBindings() {
+
+    armsDownL.onTrue(m_ArmsDownL);
+    armsDownR.onTrue(m_ArmsDownR);
+
+
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     new Trigger(m_exampleSubsystem::exampleCondition)
         .onTrue(new ExampleCommand(m_exampleSubsystem));
