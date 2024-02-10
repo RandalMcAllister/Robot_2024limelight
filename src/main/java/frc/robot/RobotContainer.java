@@ -101,9 +101,18 @@ public class RobotContainer {
    */
   private void configureBindings() {
 
-    armsDownL.onTrue(m_ArmsDownL);
-    armsDownR.onTrue(m_ArmsDownR);
-
+    armsDownL.whileTrue(m_ArmsDownL);
+    armsDownR.whileTrue(m_ArmsDownR);
+    armsUpL.whileTrue(m_ArmsUpL);
+    armsUpR.whileTrue(m_ArmsUpR);
+    shootSlow.whileTrue(m_ShootSlow);
+    shootFast.whileTrue(m_ShootFull);
+    highPistonOn.onTrue(m_HighPistonOn);
+    highPistonOff.onTrue(m_HighPistonOff);
+    lowIn.whileTrue(m_LowIn);
+    lowOut.whileTrue(m_LowOut);
+    lowPistonOn.onTrue(m_LowPistonOn);
+    lowPistonOff.onTrue(m_LowPistonOff);
 
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
     new Trigger(m_exampleSubsystem::exampleCondition)
