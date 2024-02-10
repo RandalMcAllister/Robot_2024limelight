@@ -18,14 +18,14 @@ public final class Constants {
   }
   public static class MotorConstants {
     // climbing motor channels.
-    public static final int kLClm1 = 1;
-    public static final int kLClm2 = 2;
-    public static final int kRClm1 = 3;
-    public static final int kRClm2 = 4;
+    public static final int kRClm1 = 9;
+    public static final int kRClm2 = 10;
+    public static final int kLClm1 = 11;
+    public static final int kLClm2 = 12;
     // shoot channel
-    public static final int kSho = 5;
+    public static final int kSho = 13;
     // pick up channel
-    public static final int kPik = 6;
+    public static final int kPik = 14;
   }
   public static class PneumaticsConstants{
     public static final int kModule1 = 1;
