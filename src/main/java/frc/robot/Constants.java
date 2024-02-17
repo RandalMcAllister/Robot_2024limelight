@@ -23,19 +23,21 @@ public final class Constants {
     public static final int kLClm1 = 11;
     public static final int kLClm2 = 12;
     // shoot channel
-    public static final int kSho = 13;
+    public static final int kShoot = 13;
     // pick up channel
-    public static final int kPik = 14;
+    public static final int kPick = 14;
   }
   public static class PneumaticsConstants{
     public static final int kModule1 = 1;
     public static final int kModule2 = 2;
   }
   public static class pneumaticportconstants{
+    // Pickup Droper
     public static final int kport1 =1;
     public static final int kport2 =2;
     public static final int kport3 =3;
     public static final int kport4 =4;
+    // Shooter Dump
     public static final int kport5 =5;
     public static final int kport6 =6;
     public static final int kport7 =7;

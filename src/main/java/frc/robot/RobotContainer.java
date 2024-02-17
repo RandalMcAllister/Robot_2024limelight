@@ -74,17 +74,16 @@ public class RobotContainer {
 
 
     //Button setup
-    private JoystickButton armsDownL = new JoystickButton(buttonBoard, 0);
-    private JoystickButton armsDownR = new JoystickButton(buttonBoard, 1);
-    private JoystickButton armsUpL = new JoystickButton(buttonBoard, 2);
-    private JoystickButton armsUpR = new JoystickButton(buttonBoard, 3);
-    private JoystickButton shootSlow = new JoystickButton(buttonBoard, 4);
-    private JoystickButton shootFast = new JoystickButton(buttonBoard, 5);
-    private JoystickButton ShooterPistonOn = new JoystickButton(buttonBoard, 6);
+    private JoystickButton armsDownL = new JoystickButton(buttonBoard, 7);
+    private JoystickButton armsDownR = new JoystickButton(buttonBoard, 15);
+    private JoystickButton armsUpL = new JoystickButton(buttonBoard, 8);
+    private JoystickButton armsUpR = new JoystickButton(buttonBoard, 6);
+    private JoystickButton shootSlow = new JoystickButton(buttonBoard, 5);
+    private JoystickButton ShooterPistonOn = new JoystickButton(buttonBoard, 4);
     
-    private JoystickButton lowIn = new JoystickButton(buttonBoard, 7);
-    private JoystickButton lowOut = new JoystickButton(buttonBoard, 8);
-    private JoystickButton PickupPistonOn = new JoystickButton(buttonBoard, 9);
+    private JoystickButton lowIn = new JoystickButton(buttonBoard, 2);
+    private JoystickButton lowOut = new JoystickButton(buttonBoard, 3);
+    private JoystickButton PickupPistonOn = new JoystickButton(buttonBoard, 1);
    
 
   /**

@@ -12,28 +12,29 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import frc.robot.Constants.PneumaticsConstants;
 import frc.robot.Constants.pneumaticportconstants;
+import frc.robot.Constants.MotorConstants;
 
 public class Shooter extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
 
-  private WPI_VictorSPX shootSpeed = new WPI_VictorSPX(5);
-  private DoubleSolenoid  beltSqushTop1 ;
-  private DoubleSolenoid  beltSqushTop2 ;
+  private WPI_VictorSPX shootSpeed = new WPI_VictorSPX( MotorConstants.kShoot );
+  private DoubleSolenoid  ShootDown1 ;
+  private DoubleSolenoid  ShootDown2 ;
   public Shooter() {
-    beltSqushTop1 = new DoubleSolenoid(PneumaticsConstants.kModule1 , PneumaticsModuleType.CTREPCM, pneumaticportconstants.kport5 , pneumaticportconstants.kport6);
-    beltSqushTop2 = new DoubleSolenoid(PneumaticsConstants.kModule1 , PneumaticsModuleType.CTREPCM, pneumaticportconstants.kport7 , pneumaticportconstants.kport8);
+    ShootDown1 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kport5 , pneumaticportconstants.kport6);
+    ShootDown2 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kport7 , pneumaticportconstants.kport8);
   }
 
    // pushes piston at shooter out.
    public void dump(){
-  beltSqushTop1.set(Value.kForward);
-  beltSqushTop2.set(Value.kForward);
+  ShootDown1.set(Value.kForward);
+  ShootDown2.set(Value.kForward);
   }
 
   // pulls piston at shooter in.
   public void undump(){
-beltSqushTop1.set(Value.kReverse);
-beltSqushTop2.set(Value.kReverse);
+ShootDown1.set(Value.kReverse);
+ShootDown2.set(Value.kReverse);
   }
 
   // makes the Shooter shoot at Quarter speed

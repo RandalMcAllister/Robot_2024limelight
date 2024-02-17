@@ -12,27 +12,28 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import frc.robot.Constants.PneumaticsConstants;
 import frc.robot.Constants.pneumaticportconstants;
+import frc.robot.Constants.MotorConstants;
 //import edu.wpi.first.wpilibj.Relay;
 public class Pickup extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  private WPI_VictorSPX goInOut = new WPI_VictorSPX(4);
-  private DoubleSolenoid beltSqushLow1;
-  private DoubleSolenoid beltSqushLow2;
+  private WPI_VictorSPX goInOut = new WPI_VictorSPX(MotorConstants.kPick);
+  private DoubleSolenoid Intake1;
+  private DoubleSolenoid Intake2;
   public Pickup() {
-    beltSqushLow1 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kport1 , pneumaticportconstants.kport2);
-    beltSqushLow2 = new DoubleSolenoid(PneumaticsConstants.kModule1,PneumaticsModuleType.CTREPCM,pneumaticportconstants.kport3,pneumaticportconstants.kport4);
+    Intake1 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kport1 , pneumaticportconstants.kport2);
+    Intake2 = new DoubleSolenoid(PneumaticsConstants.kModule1,PneumaticsModuleType.CTREPCM,pneumaticportconstants.kport3,pneumaticportconstants.kport4);
   }
 
   // pushes out piston at intake.
   public void drop(){
-  beltSqushLow1.set(Value.kForward);
-  beltSqushLow2.set(Value.kForward);
+  Intake1.set(Value.kForward);
+  Intake2.set(Value.kForward);
   }
 
   // pulls in piston at intake.
   public void undrop(){
-beltSqushLow1.set(Value.kReverse);
-beltSqushLow2.set(Value.kReverse);
+  Intake1.set(Value.kReverse);
+  Intake2.set(Value.kReverse);
   }
 
   // makes intake go inward, pulling in notes.
