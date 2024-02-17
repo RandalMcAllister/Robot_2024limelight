@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import frc.robot.Constants.PneumaticsConstants;
 import frc.robot.Constants.pneumaticportconstants;
-import frc.robot.commands.ShootFull;
+
 public class Shooter extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
 
@@ -47,10 +47,7 @@ beltSqushTop2.set(Value.kReverse);
     shootSpeed.set(1);
   }
 
-  // makes the Shooter shoot at full speed
-  public void shootFast(){
-    shootSpeed.set(1);
-  }
+  
 
   // stops shooter from shooting
   public void Stop(){

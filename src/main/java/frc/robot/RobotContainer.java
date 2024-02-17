@@ -22,7 +22,7 @@ import frc.robot.commands.armsUpL;
 import frc.robot.commands.armsUpR;
 import frc.robot.commands.lowIn;
 import frc.robot.commands.lowOut;
-import frc.robot.commands.ShootFull;
+
 import frc.robot.commands.shootSlow;
 
 //import subsystems
@@ -64,7 +64,7 @@ public class RobotContainer {
     private final armsUpL m_ArmsUpL = new armsUpL(m_Climb);
     private final armsUpR m_ArmsUpR = new armsUpR(m_Climb);
     private final shootSlow m_ShootSlow = new shootSlow(m_Shooter);
-    private final ShootFull m_ShootFull = new ShootFull(m_Shooter);
+    
     
     
     private final lowIn m_LowIn = new lowIn(m_Pickup);
@@ -103,7 +103,7 @@ public class RobotContainer {
     armsUpL.whileTrue(m_ArmsUpL);
     armsUpR.whileTrue(m_ArmsUpR);
     shootSlow.whileTrue(m_ShootSlow);
-    shootFast.whileTrue(m_ShootFull);
+    
     ShooterPistonOn.toggleOnTrue(new StartEndCommand( m_Shooter::dump , m_Shooter::undump, m_Shooter));
     lowIn.whileTrue(m_LowIn);
     lowOut.whileTrue(m_LowOut);
