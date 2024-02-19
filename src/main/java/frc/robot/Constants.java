@@ -43,6 +43,12 @@ public final class Constants {
     public static final int kport7 =7;
     public static final int kport8 =8;
   }
+  public static class AutoConstants{
+    public static final double kDriveFor = 10;
+    public static final double kShootFor = 10;
+    public static final double KPikUpFor = 10;
+
+  }
   public static class SwerveConstants{
     public static final double kWheelRadius = 0.05845; //Need to update
     public static final int kAngleEncoderResolution = 400; //see https://www.andymark.com/products/hall-effect-two-channel-encoder

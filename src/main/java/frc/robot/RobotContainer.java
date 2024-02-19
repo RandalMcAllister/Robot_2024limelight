@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 //import commands
 import frc.robot.commands.armsDownL;
 import frc.robot.commands.armsDownR;
@@ -22,6 +23,7 @@ import frc.robot.commands.armsUpL;
 import frc.robot.commands.armsUpR;
 import frc.robot.commands.lowIn;
 import frc.robot.commands.lowOut;
+import frc.robot.commands.ReverseShot;
 
 import frc.robot.commands.shootSlow;
 
@@ -49,6 +51,8 @@ public class RobotContainer {
     // Configure the trigger bindings
     configureBindings();
   }
+  
+  
   // subsystems
     private final Climb m_Climb = new Climb();
     private final Pickup m_Pickup = new Pickup();
@@ -57,6 +61,8 @@ public class RobotContainer {
   // Joysticks
     private final Joystick buttonBoard = new Joystick(1);
     private final Joystick StickOfHope = new Joystick(0);
+     //Chooser for Auto
+     SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   //Commands
     private final armsDownL m_ArmsDownL = new armsDownL(m_Climb);
@@ -64,12 +70,13 @@ public class RobotContainer {
     private final armsUpL m_ArmsUpL = new armsUpL(m_Climb);
     private final armsUpR m_ArmsUpR = new armsUpR(m_Climb);
     private final shootSlow m_ShootSlow = new shootSlow(m_Shooter);
-    
+    private final ReverseShot m_ReverseShot = new ReverseShot(m_Shooter);
     
     
     private final lowIn m_LowIn = new lowIn(m_Pickup);
     private final lowOut m_LowOut = new lowOut(m_Pickup);
-   
+    // Default
+    
    
 
 
@@ -80,11 +87,13 @@ public class RobotContainer {
     private JoystickButton armsUpR = new JoystickButton(buttonBoard, 6);
     private JoystickButton shootSlow = new JoystickButton(buttonBoard, 5);
     private JoystickButton ShooterPistonOn = new JoystickButton(buttonBoard, 4);
+    private JoystickButton ReverseShot = new JoystickButton(buttonBoard, 14);
     
     private JoystickButton lowIn = new JoystickButton(buttonBoard, 2);
     private JoystickButton lowOut = new JoystickButton(buttonBoard, 3);
     private JoystickButton PickupPistonOn = new JoystickButton(buttonBoard, 1);
-   
+        
+   // m_chooser. setDefaultOption("Autonomous Command", new Autos(m_driveTrain, m_Shooter, m_Pickup);
 
   /**
    * Use this method to define your trigger->command mappings. Triggers can be created via the
@@ -102,7 +111,7 @@ public class RobotContainer {
     armsUpL.whileTrue(m_ArmsUpL);
     armsUpR.whileTrue(m_ArmsUpR);
     shootSlow.whileTrue(m_ShootSlow);
-    
+    ReverseShot.whileTrue(m_ReverseShot);
     ShooterPistonOn.toggleOnTrue(new StartEndCommand( m_Shooter::dump , m_Shooter::undump, m_Shooter));
     lowIn.whileTrue(m_LowIn);
     lowOut.whileTrue(m_LowOut);
@@ -125,6 +134,7 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return Autos.exampleAuto(m_exampleSubsystem);
+    return m_chooser.getSelected();
   }
+  
 }

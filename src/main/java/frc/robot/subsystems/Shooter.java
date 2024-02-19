@@ -7,12 +7,15 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import frc.robot.Constants.PneumaticsConstants;
 import frc.robot.Constants.pneumaticportconstants;
 import frc.robot.Constants.MotorConstants;
+import edu.wpi.first.wpilibj.Encoder; 
 
 public class Shooter extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
@@ -20,7 +23,11 @@ public class Shooter extends SubsystemBase {
   private WPI_VictorSPX shootSpeed = new WPI_VictorSPX( MotorConstants.kShoot );
   private DoubleSolenoid  ShootDown1 ;
   private DoubleSolenoid  ShootDown2 ;
+  private Encoder ShootEncoder ;
+
   public Shooter() {
+    ShootEncoder = new Encoder(1, 2, false, EncodingType.k4X);
+
     ShootDown1 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kport5 , pneumaticportconstants.kport6);
     ShootDown2 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kport7 , pneumaticportconstants.kport8);
   }
@@ -37,7 +44,7 @@ ShootDown1.set(Value.kReverse);
 ShootDown2.set(Value.kReverse);
   }
 
-  // makes the Shooter shoot at Quarter speed
+  // makes the Shooter shoot at Quarter speed then rev
   public void shoot(){
     shootSpeed.set(0.25);
     Commands.waitSeconds(1.5);
@@ -47,13 +54,24 @@ ShootDown2.set(Value.kReverse);
     Commands.waitSeconds(1.5);
     shootSpeed.set(1);
   }
-
+  // reverses Shooter
+public void shootReverse(){
+  shootSpeed.set(-0.5);
+}
   
 
   // stops shooter from shooting
   public void Stop(){
     shootSpeed.set(0);
   }
+
+  public void ShootEncoderReset() {
+    ShootEncoder.reset();
+}
+
+public double getShootDistance() {
+    return ShootEncoder.getDistance();
+}
   
   /**
    * Example command factory method.
