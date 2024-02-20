@@ -18,10 +18,11 @@ import frc.robot.commands.armsDownL;
 import frc.robot.commands.armsDownR;
 import frc.robot.commands.armsUpL;
 import frc.robot.commands.armsUpR;
-import frc.robot.commands.shootSlow;
+import frc.robot.commands.shootFast;
 import frc.robot.commands.lowIn;
 import frc.robot.commands.lowOut;
 import frc.robot.commands.ShootLength;
+import frc.robot.commands.PickupLength;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 
@@ -37,8 +38,9 @@ public final class Auto {
   /** Example static factory for an autonomous command. */
   public Auto(DriveTrain drive, Shooter shoot, Pickup in) {
     addCommands(
-    new ShootLength (AutoConstants.kShootFor, shoot)
-    
+    new ShootLength (AutoConstants.kShootFor, shoot),
+    new DriveLength(AutoConstants.kDriveFor, AutoConstants.kDriveSpeed ,drive),
+    new PickupLength (AutoConstants.KPikUpFor, in)
     
     );
   }

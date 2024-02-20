@@ -44,9 +44,10 @@ public final class Constants {
     public static final int kport8 =8;
   }
   public static class AutoConstants{
-    public static final double kDriveFor = 10;
-    public static final double kShootFor = 10;
-    public static final double KPikUpFor = 10;
+    public static final double kDriveFor = 4;
+    public static final double kDriveSpeed = 0.25;
+    public static final double kShootFor = 5;
+    public static final double KPikUpFor = 5;
 
   }
   public static class SwerveConstants{

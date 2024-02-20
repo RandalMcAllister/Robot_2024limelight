@@ -23,9 +23,12 @@ import frc.robot.commands.armsUpL;
 import frc.robot.commands.armsUpR;
 import frc.robot.commands.lowIn;
 import frc.robot.commands.lowOut;
+import frc.robot.commands.PickupLength;
 import frc.robot.commands.ReverseShot;
-
 import frc.robot.commands.shootSlow;
+import frc.robot.commands.shootFast;
+import frc.robot.commands.ShootLength;
+import frc.robot.commands.DriveLength;
 
 //import subsystems
 import frc.robot.subsystems.Climb;
@@ -69,9 +72,9 @@ public class RobotContainer {
     private final armsDownR m_ArmsDownR = new armsDownR(m_Climb);
     private final armsUpL m_ArmsUpL = new armsUpL(m_Climb);
     private final armsUpR m_ArmsUpR = new armsUpR(m_Climb);
-    private final shootSlow m_ShootSlow = new shootSlow(m_Shooter);
+    private final shootFast m_ShootSlow = new shootFast(m_Shooter);
     private final ReverseShot m_ReverseShot = new ReverseShot(m_Shooter);
-    
+    private final shootSlow m_Shootslow = new shootSlow(m_Shooter);
     
     private final lowIn m_LowIn = new lowIn(m_Pickup);
     private final lowOut m_LowOut = new lowOut(m_Pickup);
@@ -88,12 +91,12 @@ public class RobotContainer {
     private JoystickButton shootSlow = new JoystickButton(buttonBoard, 5);
     private JoystickButton ShooterPistonOn = new JoystickButton(buttonBoard, 4);
     private JoystickButton ReverseShot = new JoystickButton(buttonBoard, 14);
-    
+    private JoystickButton shootsmall = new JoystickButton(buttonBoard, 9);
     private JoystickButton lowIn = new JoystickButton(buttonBoard, 2);
     private JoystickButton lowOut = new JoystickButton(buttonBoard, 3);
     private JoystickButton PickupPistonOn = new JoystickButton(buttonBoard, 1);
-        
-   // m_chooser. setDefaultOption("Autonomous Command", new Autos(m_driveTrain, m_Shooter, m_Pickup);
+       // Robot maker code from last year, may or may not be needed. 
+    //m_chooser.setDefaultOption("Autonomous Command", new Autos(m_driveTrain, m_Shooter, m_Pickup);
 
   /**
    * Use this method to define your trigger->command mappings. Triggers can be created via the
@@ -112,6 +115,7 @@ public class RobotContainer {
     armsUpR.whileTrue(m_ArmsUpR);
     shootSlow.whileTrue(m_ShootSlow);
     ReverseShot.whileTrue(m_ReverseShot);
+    shootsmall.whileTrue(m_Shootslow);
     ShooterPistonOn.toggleOnTrue(new StartEndCommand( m_Shooter::dump , m_Shooter::undump, m_Shooter));
     lowIn.whileTrue(m_LowIn);
     lowOut.whileTrue(m_LowOut);

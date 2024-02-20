@@ -8,7 +8,7 @@ import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /** An example command that uses an example subsystem. */
-public class shootSlow extends Command {
+public class shootFast extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final Shooter m_Shooter;
 
@@ -17,7 +17,7 @@ public class shootSlow extends Command {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public shootSlow(Shooter Shooter) {
+  public shootFast(Shooter Shooter) {
     m_Shooter = Shooter;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_Shooter);
@@ -30,7 +30,7 @@ public class shootSlow extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_Shooter.shootsmall();
+    m_Shooter.shoot();
   }
 
   // Called once the command ends or is interrupted.

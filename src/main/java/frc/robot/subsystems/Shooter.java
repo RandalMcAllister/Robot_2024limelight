@@ -44,19 +44,17 @@ ShootDown1.set(Value.kReverse);
 ShootDown2.set(Value.kReverse);
   }
 
-  // makes the Shooter shoot at Quarter speed then rev
+  // makes the Shooter shoot at full speed
   public void shoot(){
-    shootSpeed.set(0.25);
-    Commands.waitSeconds(1.5);
-   shootSpeed.set(0.5);
-    Commands.waitSeconds(1.5);
-    shootSpeed.set(0.75);
-    Commands.waitSeconds(1.5);
     shootSpeed.set(1);
   }
+// shoot at quarter speed
+public void shootsmall(){
+  shootSpeed.set(0.25);
+}
   // reverses Shooter
 public void shootReverse(){
-  shootSpeed.set(-0.5);
+  shootSpeed.set(-0.75);
 }
   
 

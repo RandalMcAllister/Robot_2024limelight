@@ -7,19 +7,25 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import frc.robot.Constants.PneumaticsConstants;
 import frc.robot.Constants.pneumaticportconstants;
 import frc.robot.Constants.MotorConstants;
+import edu.wpi.first.wpilibj.Encoder; 
 //import edu.wpi.first.wpilibj.Relay;
 public class Pickup extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
   private WPI_VictorSPX goInOut = new WPI_VictorSPX(MotorConstants.kPick);
   private DoubleSolenoid Intake1;
   private DoubleSolenoid Intake2;
+  private Encoder PickupEncoder;
   public Pickup() {
+    PickupEncoder = new Encoder(3, 4, false, EncodingType.k4X);
+
     Intake1 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kport1 , pneumaticportconstants.kport2);
     Intake2 = new DoubleSolenoid(PneumaticsConstants.kModule1,PneumaticsModuleType.CTREPCM,pneumaticportconstants.kport3,pneumaticportconstants.kport4);
   }
@@ -50,6 +56,13 @@ public class Pickup extends SubsystemBase {
   public void Stop(){
     goInOut.set(0);
   }
+  public void PickEncoderReset() {
+    PickupEncoder.reset();
+}
+
+public double getPickDistance() {
+    return PickupEncoder.getDistance();
+}
 
   /**
    * Example command factory method.
