@@ -17,7 +17,7 @@ import frc.robot.LimelightHelpers;
 /** An example command that uses an example subsystem. */
 public class aimAmp extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final DriveTrain m_subsystem;
+  private final DriveTrain m_Drive;
 
 
 /*   
@@ -40,7 +40,7 @@ public class aimAmp extends Command {
    * @param subsystem The subsystem used by this command.
    */
   public aimAmp(DriveTrain subsystem) {
-    m_subsystem = subsystem;
+    m_Drive = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -90,13 +90,13 @@ else {}
     zRotation = steering_adjust;
     */
 
-    m_subsystem.drive(xSpeed, ySpeed, zRotation, true);
+    m_Drive.drive(xSpeed, ySpeed, zRotation, true);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_subsystem.drive(0, 0, 0,false);
+    m_Drive.drive(0, 0, 0,false);
   }
 
   // Returns true when the command should end.

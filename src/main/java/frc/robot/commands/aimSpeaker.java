@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 /** An example command that uses an example subsystem. */
 public class aimSpeaker extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final DriveTrain m_subsystem;
+  private final DriveTrain m_Drive;
 
   /* 
   NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
@@ -41,7 +41,7 @@ public class aimSpeaker extends Command {
    * @param subsystem The subsystem used by this command.
    */
   public aimSpeaker(DriveTrain subsystem) {
-    m_subsystem = subsystem;
+    m_Drive = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
@@ -90,13 +90,13 @@ public class aimSpeaker extends Command {
     zRotation = steering_adjust;
     */
 
-    m_subsystem.drive(xSpeed, ySpeed, zRotation, true);
+    m_Drive.drive(xSpeed, ySpeed, zRotation, true);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    m_subsystem.drive(0, 0, 0,false);
+    m_Drive.drive(0, 0, 0,false);
   }
 
   // Returns true when the command should end.

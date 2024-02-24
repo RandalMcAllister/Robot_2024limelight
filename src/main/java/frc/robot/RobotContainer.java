@@ -36,6 +36,7 @@ import frc.robot.commands.aimSpeaker;
 import frc.robot.subsystems.Climb;
 import frc.robot.subsystems.Pickup;
 import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.DriveTrain;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -62,6 +63,7 @@ public class RobotContainer {
     private final Climb m_Climb = new Climb();
     private final Pickup m_Pickup = new Pickup();
     private final Shooter m_Shooter = new Shooter();
+    private final DriveTrain m_Drive = new frc.robot.subsystems.DriveTrain();
 
   // Joysticks
     private final Joystick buttonBoard = new Joystick(1);
@@ -78,8 +80,8 @@ public class RobotContainer {
     private final ReverseShot m_ReverseShot = new ReverseShot(m_Shooter);
     private final shootSlow m_Shootslow = new shootSlow(m_Shooter);
 
-    private final aimAmp m_aimAmp = new aimAmp(m_exampleSubsystem);
-    private final aimSpeaker m_aimSpeaker = new aimSpeaker(m_exampleSubsystem);
+    private final aimAmp m_aimAmp = new aimAmp(m_Drive);
+    private final aimSpeaker m_aimSpeaker = new aimSpeaker(m_Drive);
     
     private final lowIn m_LowIn = new lowIn(m_Pickup);
     private final lowOut m_LowOut = new lowOut(m_Pickup);
