@@ -4,9 +4,13 @@
 
 package frc.robot.subsystems;
 import frc.robot.Constants.MotorConstants;
+import edu.wpi.first.units.Current;
+import edu.wpi.first.wpilibj.PowerDistribution;
+import edu.wpi.first.wpilibj.PowerDistribution.ModuleType;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 
 public class Climb extends SubsystemBase {
@@ -15,7 +19,13 @@ public class Climb extends SubsystemBase {
    private final WPI_VictorSPX Lmotor2 = new WPI_VictorSPX(MotorConstants.kLClm2);
     private final WPI_VictorSPX Rmotor1 = new WPI_VictorSPX(MotorConstants.kRClm1);
      private final WPI_VictorSPX Rmotor2 = new WPI_VictorSPX(MotorConstants.kRClm2);
-
+     PowerDistribution PowerDistribution = new PowerDistribution(1, ModuleType.kRev);
+     
+     //double current6 = PowerDistribution.getCurrent(6);
+     double current9 = PowerDistribution.getCurrent(9);
+     double currents4 = PowerDistribution.getCurrent(4);
+     double current5 = PowerDistribution.getCurrent(5);
+    // SmartDashboard.putNumber("Left One Voltage", voltleft1());
      //private final MotorControllerGroup left = new MotorControllerGroup(Lmotor1, Lmotor2);
   public Climb() {}
 
@@ -58,6 +68,11 @@ public class Climb extends SubsystemBase {
   public void StopR(){
     Rmotor1.set(0);
     Rmotor2.set(0);
+  }
+   public double voltleft1(){
+    
+   double current6 = PowerDistribution.getCurrent(6);
+    return  current6;
   }
   
   /**

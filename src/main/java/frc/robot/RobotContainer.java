@@ -84,17 +84,17 @@ public class RobotContainer {
 
 
     //Button setup
-    private JoystickButton armsDownL = new JoystickButton(buttonBoard, 7);
-    private JoystickButton armsDownR = new JoystickButton(buttonBoard, 15);
-    private JoystickButton armsUpL = new JoystickButton(buttonBoard, 8);
-    private JoystickButton armsUpR = new JoystickButton(buttonBoard, 6);
-    private JoystickButton shootSlow = new JoystickButton(buttonBoard, 5);
-    private JoystickButton ShooterPistonOn = new JoystickButton(buttonBoard, 4);
+    private JoystickButton armsDownL = new JoystickButton(buttonBoard, 6);
+    private JoystickButton armsDownR = new JoystickButton(buttonBoard, 7);
+    private JoystickButton armsUpL = new JoystickButton(buttonBoard, 5);
+    private JoystickButton armsUpR = new JoystickButton(buttonBoard, 4);
+    private JoystickButton shootSlow = new JoystickButton(buttonBoard, 1);
+    private JoystickButton ShooterPistonOn = new JoystickButton(buttonBoard, 2);
     private JoystickButton ReverseShot = new JoystickButton(buttonBoard, 14);
-    private JoystickButton shootsmall = new JoystickButton(buttonBoard, 9);
-    private JoystickButton lowIn = new JoystickButton(buttonBoard, 2);
-    private JoystickButton lowOut = new JoystickButton(buttonBoard, 3);
-    private JoystickButton PickupPistonOn = new JoystickButton(buttonBoard, 1);
+    private JoystickButton shootsmall = new JoystickButton(buttonBoard, 3);
+    private JoystickButton lowIn = new JoystickButton(buttonBoard, 8);
+    private JoystickButton lowOut = new JoystickButton(buttonBoard, 10);
+    private JoystickButton PickupPistonOn = new JoystickButton(buttonBoard, 9);
        // Robot maker code from last year, may or may not be needed. 
     //m_chooser.setDefaultOption("Autonomous Command", new Autos(m_driveTrain, m_Shooter, m_Pickup);
 
