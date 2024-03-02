@@ -26,8 +26,8 @@ public class Pickup extends SubsystemBase {
   public Pickup() {
     PickupEncoder = new Encoder(3, 4, false, EncodingType.k4X);
 
-    Intake1 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kport1 , pneumaticportconstants.kport2);
-    Intake2 = new DoubleSolenoid(PneumaticsConstants.kModule1,PneumaticsModuleType.CTREPCM,pneumaticportconstants.kport3,pneumaticportconstants.kport4);
+    Intake1 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kPFport1 , pneumaticportconstants.kPRport1);
+    Intake2 = new DoubleSolenoid(PneumaticsConstants.kModule1,PneumaticsModuleType.CTREPCM,pneumaticportconstants.kPFport2,pneumaticportconstants.kPRport2);
   }
 
   // pushes out piston at intake.

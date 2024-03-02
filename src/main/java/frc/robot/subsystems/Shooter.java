@@ -30,8 +30,8 @@ public class Shooter extends SubsystemBase {
   public Shooter() {
     ShootEncoder = new Encoder(1, 2, false, EncodingType.k4X);
 
-    ShootDown1 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kport5 , pneumaticportconstants.kport6);
-    ShootDown2 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kport7 , pneumaticportconstants.kport8);
+    ShootDown1 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kSFport1 , pneumaticportconstants.kSRport1);
+    ShootDown2 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kSFport2, pneumaticportconstants.kSRport2);
   }
 
    // pushes piston at shooter out.
