@@ -5,6 +5,7 @@
 package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.Constants.DriveConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
@@ -13,6 +14,8 @@ import edu.wpi.first.wpilibj2.command.StartEndCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj2.command.RunCommand;
+import edu.wpi.first.math.MathUtil;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -21,8 +24,8 @@ import frc.robot.commands.armsDownL;
 import frc.robot.commands.armsDownR;
 import frc.robot.commands.armsUpL;
 import frc.robot.commands.armsUpR;
-import frc.robot.commands.lowIn;
-import frc.robot.commands.lowOut;
+import frc.robot.commands.rollerSpinIn;
+import frc.robot.commands.rollorSpinOut;
 import frc.robot.commands.PickupLength;
 import frc.robot.commands.ReverseShot;
 import frc.robot.commands.shootSlow;
@@ -34,6 +37,7 @@ import frc.robot.commands.DriveLength;
 import frc.robot.subsystems.Climb;
 import frc.robot.subsystems.Pickup;
 import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.DriveTrain;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -55,10 +59,11 @@ public class RobotContainer {
     private final Climb m_Climb = new Climb();
     private final Pickup m_Pickup = new Pickup();
     private final Shooter m_Shooter = new Shooter();
+    private final DriveTrain m_robotDrive = new DriveTrain();
 
   // Joysticks
     private final Joystick buttonBoard = new Joystick(1);
-    private final Joystick StickOfHope = new Joystick(0);
+    private final Joystick m_StickOfHope = new Joystick(0);
      //Chooser for Auto
      SendableChooser<Command> m_chooser = new SendableChooser<>();
 
@@ -71,8 +76,8 @@ public class RobotContainer {
     private final ReverseShot m_ReverseShot = new ReverseShot(m_Shooter);
     private final shootSlow m_Shootslow = new shootSlow(m_Shooter);
     
-    private final lowIn m_LowIn = new lowIn(m_Pickup);
-    private final lowOut m_LowOut = new lowOut(m_Pickup);
+    private final rollerSpinIn m_LowIn = new rollerSpinIn(m_Pickup);
+    private final rollorSpinOut m_LowOut = new rollorSpinOut(m_Pickup);
     // Default
     
    
@@ -99,11 +104,11 @@ public class RobotContainer {
     //Configure driving default
     m_robotDrive.setDefaultCommand(
       // Forward motion controls x speed (forward), sideways motion controls y speed (sideways).
-        new RunCommand(
-          () -> m_robotDrive.drive(
-                -MathUtil.applyDeadband(m_driverJoystick.getY(), DriveConstants.kDriveDeadband),
-                -MathUtil.applyDeadband(m_driverJoystick.getX(), DriveConstants.kDriveDeadband),
-                -MathUtil.applyDeadband(m_driverJoystick.getZ(), DriveConstants.kDriveDeadband),
+        new RunCommand ( 
+                () -> m_robotDrive.drive(
+                -MathUtil.applyDeadband(m_StickOfHope.getY(), DriveConstants.kDriveDeadband),
+                -MathUtil.applyDeadband(m_StickOfHope.getX(), DriveConstants.kDriveDeadband),
+                -MathUtil.applyDeadband(m_StickOfHope.getZ(), DriveConstants.kDriveDeadband),
                 DriveConstants.kTeleField), m_robotDrive)
         );
     // Configure the trigger bindings

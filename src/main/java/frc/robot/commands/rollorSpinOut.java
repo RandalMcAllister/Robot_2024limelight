@@ -8,7 +8,7 @@ import frc.robot.subsystems.Pickup;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /** An example command that uses an example subsystem. */
-public class  lowIn extends Command {
+public class rollorSpinOut extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final Pickup m_Pickup;
 
@@ -17,7 +17,7 @@ public class  lowIn extends Command {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public lowIn(Pickup Pickup) {
+  public rollorSpinOut(Pickup Pickup) {
     m_Pickup = Pickup;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_Pickup);
@@ -32,7 +32,7 @@ public class  lowIn extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_Pickup.Eat();
+    m_Pickup.Spit();
   }
 
   // Called once the command ends or is interrupted.

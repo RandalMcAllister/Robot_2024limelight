@@ -81,6 +81,8 @@ public final class Constants {
     public static final double kFrontRightChassisAngularOffset = 0;
     public static final double kBackLeftChassisAngularOffset = 0;
     public static final double kBackRightChassisAngularOffset = 0;
+    // just to make the runcommand work in robot container, I think this is the wanted value.
+    public static final boolean kTeleField = false;
 
   }
 
