@@ -22,10 +22,10 @@ public class Climb extends SubsystemBase {
      PowerDistribution PowerDistribution = new PowerDistribution(1, ModuleType.kRev);
      
      //double current6 = PowerDistribution.getCurrent(6);
-     double current9 = PowerDistribution.getCurrent(9);
-     double currents4 = PowerDistribution.getCurrent(4);
-     double current5 = PowerDistribution.getCurrent(5);
-    // SmartDashboard.putNumber("Left One Voltage", voltleft1());
+    // double current9 = PowerDistribution.getCurrent(9);
+    // double currents4 = PowerDistribution.getCurrent(4);
+     //double current5 = PowerDistribution.getCurrent(5);
+    
      //private final MotorControllerGroup left = new MotorControllerGroup(Lmotor1, Lmotor2);
   public Climb() {}
 
@@ -69,11 +69,7 @@ public class Climb extends SubsystemBase {
     Rmotor1.set(0);
     Rmotor2.set(0);
   }
-   public double voltleft1(){
-    
-   double current6 = PowerDistribution.getCurrent(6);
-    return  current6;
-  }
+   
   
   /**
    * Example command factory method.
@@ -102,10 +98,30 @@ public class Climb extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+     SmartDashboard.putNumber("Left One Voltage", voltLeft1());
+     SmartDashboard.putNumber("Left two Voltage", voltLeft2());
+     SmartDashboard.putNumber("Right One Voltage", voltRight1());
+      SmartDashboard.putNumber("Right two Voltage", voltRight2());
   }
 
   @Override
   public void simulationPeriodic() {
     // This method will be called once per scheduler run during simulation
+  }
+  public double voltLeft1(){
+    double voltLeft1 = PowerDistribution.getCurrent(6);
+    return voltLeft1;
+  }
+   public double voltLeft2(){
+    double voltLeft2 = PowerDistribution.getCurrent(9);
+    return voltLeft2;
+  }
+   public double voltRight1(){
+    double voltLeft1 = PowerDistribution.getCurrent(4);
+    return voltLeft1;
+  }
+  public double voltRight2(){
+    double voltLeft1 = PowerDistribution.getCurrent(5);
+    return voltLeft1;
   }
 }
