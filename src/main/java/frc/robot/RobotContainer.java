@@ -49,11 +49,6 @@ public class RobotContainer {
   private final CommandXboxController m_driverController =
       new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
-  /** The container for the robot. Contains subsystems, OI devices, and commands. */
-  public RobotContainer() {
-    // Configure the trigger bindings
-    configureBindings();
-  }
   
   
   // subsystems
@@ -98,6 +93,25 @@ public class RobotContainer {
        // Robot maker code from last year, may or may not be needed. 
     //m_chooser.setDefaultOption("Autonomous Command", new Autos(m_driveTrain, m_Shooter, m_Pickup);
 
+    /** The container for the robot. Contains subsystems, OI devices, and commands. */
+  public RobotContainer() {
+
+    //Configure driving default
+    m_robotDrive.setDefaultCommand(
+      // Forward motion controls x speed (forward), sideways motion controls y speed (sideways).
+        new RunCommand(
+          () -> m_robotDrive.drive(
+                -MathUtil.applyDeadband(m_driverJoystick.getY(), DriveConstants.kDriveDeadband),
+                -MathUtil.applyDeadband(m_driverJoystick.getX(), DriveConstants.kDriveDeadband),
+                -MathUtil.applyDeadband(m_driverJoystick.getZ(), DriveConstants.kDriveDeadband),
+                DriveConstants.kTeleField), m_robotDrive)
+        );
+    // Configure the trigger bindings
+    configureBindings();
+  }
+  
+
+  
   /**
    * Use this method to define your trigger->command mappings. Triggers can be created via the
    * {@link Trigger#Trigger(java.util.function.BooleanSupplier)} constructor with an arbitrary
