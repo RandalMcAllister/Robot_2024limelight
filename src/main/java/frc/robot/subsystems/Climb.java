@@ -109,19 +109,19 @@ public class Climb extends SubsystemBase {
     // This method will be called once per scheduler run during simulation
   }
   public double voltLeft1(){
-    double voltLeft1 = PowerDistribution.getCurrent(6);
+    double voltLeft1 = PowerDistribution.getCurrent(5);
     return voltLeft1;
   }
    public double voltLeft2(){
-    double voltLeft2 = PowerDistribution.getCurrent(9);
+    double voltLeft2 = PowerDistribution.getCurrent(6);
     return voltLeft2;
   }
    public double voltRight1(){
-    double voltLeft1 = PowerDistribution.getCurrent(4);
+    double voltLeft1 = PowerDistribution.getCurrent(9);
     return voltLeft1;
   }
   public double voltRight2(){
-    double voltLeft1 = PowerDistribution.getCurrent(5);
+    double voltLeft1 = PowerDistribution.getCurrent(10);
     return voltLeft1;
   }
 }

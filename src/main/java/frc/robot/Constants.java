@@ -20,10 +20,10 @@ public final class Constants {
     // climbing motor channels.
     public static final int kRClm1 = 9;
     public static final int kRClm2 = 10;
-    public static final int kLClm1 = 11;
-    public static final int kLClm2 = 12;
+    public static final int kLClm1 = 5;
+    public static final int kLClm2 = 6;
     // shoot channel
-    public static final int kShoot = 13;
+    public static final int kShoot = 4;
     // pick up channel
     public static final int kPick = 14;
   }
