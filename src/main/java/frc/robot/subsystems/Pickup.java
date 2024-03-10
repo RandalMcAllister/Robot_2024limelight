@@ -21,25 +21,25 @@ public class Pickup extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
   private WPI_VictorSPX goInOut = new WPI_VictorSPX(MotorConstants.kPick);
   private DoubleSolenoid Intake1;
-  private DoubleSolenoid Intake2;
+ 
   private Encoder PickupEncoder;
   public Pickup() {
     PickupEncoder = new Encoder(3, 4, false, EncodingType.k4X);
 
     Intake1 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kPFport1 , pneumaticportconstants.kPRport1);
-    Intake2 = new DoubleSolenoid(PneumaticsConstants.kModule1,PneumaticsModuleType.CTREPCM,pneumaticportconstants.kPFport2,pneumaticportconstants.kPRport2);
+    
   }
 
   // pushes out piston at intake.
   public void drop(){
   Intake1.set(Value.kForward);
-  Intake2.set(Value.kForward);
+  
   }
 
   // pulls in piston at intake.
   public void undrop(){
   Intake1.set(Value.kReverse);
-  Intake2.set(Value.kReverse);
+  
   }
 
   // makes intake go inward, pulling in notes.

@@ -35,13 +35,12 @@ public final class Constants {
     // Pickup Droper
     public static final int kPFport1 =1;
     public static final int kPRport1 =2;
-    public static final int kPFport2 =3;
-    public static final int kPRport2 =4;
+    
     // Shooter Dump
-    public static final int kSFport1 =5;
-    public static final int kSRport1 =6;
-    public static final int kSFport2 =7;
-    public static final int kSRport2 =8;
+    public static final int kSFport1 =3;
+    public static final int kSRport1 =4;
+    public static final int kSFport2 =5;
+    public static final int kSRport2 =6;
   }
   public static class AutoConstants{
     public static final double kDriveFor = 4;
