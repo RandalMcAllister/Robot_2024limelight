@@ -91,6 +91,7 @@ public final class Constants {
     public static final int kLeftBackDrive = 4;
     public static final int kRightFrontDrive = 1;
     public static final int kRightBackDrive = 3;
+    // Turning motors
     public static final int kLeftFrontTurn = 5;
     public static final int kLeftBackTurn = 7;
     public static final int kRightFrontTurn = 6;
