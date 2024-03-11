@@ -19,7 +19,7 @@ public class ClimbR extends SubsystemBase {
   
     private final WPI_VictorSPX Rmotor1 = new WPI_VictorSPX(MotorConstants.kRClm1);
      private final WPI_VictorSPX Rmotor2 = new WPI_VictorSPX(MotorConstants.kRClm2);
-     PowerDistribution PowerDistribution = new PowerDistribution(1, ModuleType.kRev);
+     //PowerDistribution PowerDistribution = new PowerDistribution(1, ModuleType.kRev);
      
      //double current6 = PowerDistribution.getCurrent(6);
     // double current9 = PowerDistribution.getCurrent(9);
@@ -82,8 +82,8 @@ public class ClimbR extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
      
-     SmartDashboard.putNumber("Right One Voltage", voltRight1());
-      SmartDashboard.putNumber("Right two Voltage", voltRight2());
+     //SmartDashboard.putNumber("Right One Voltage", voltRight1());
+      //SmartDashboard.putNumber("Right two Voltage", voltRight2());
      
   }
 
@@ -92,12 +92,12 @@ public class ClimbR extends SubsystemBase {
     // This method will be called once per scheduler run during simulation
   }
  
-   public double voltRight1(){
-    double voltRight1 = PowerDistribution.getCurrent(4);
+   /*public double voltRight1(){
+    //double voltRight1 = PowerDistribution.getCurrent(4);
     return voltRight1;
   }
   public double voltRight2(){
-    double voltRight2 = PowerDistribution.getCurrent(5);
-    return voltRight2;
-  }
+    //double voltRight2 = PowerDistribution.getCurrent(5);
+   // return voltRight2;
+  }*/
 }
