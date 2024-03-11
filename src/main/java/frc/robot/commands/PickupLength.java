@@ -16,7 +16,7 @@ public class PickupLength extends Command {
   public PickupLength(double Length ,Pickup Pickup) {
     m_Length = Length;
     m_Pickup = Pickup;
-
+  
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Pickup);
   }
@@ -24,7 +24,6 @@ public class PickupLength extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-  m_Pickup.PickEncoderReset();
   m_Pickup.Eat();
   }
 
@@ -43,6 +42,6 @@ public class PickupLength extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return Math.abs(m_Pickup.getPickDistance()) >= m_Length;
+    return (true);
   }
 }

@@ -13,12 +13,11 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 
-public class Climb extends SubsystemBase {
+public class ClimbLe extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
   private final WPI_VictorSPX Lmotor1 = new WPI_VictorSPX(MotorConstants.kLClm1);
    private final WPI_VictorSPX Lmotor2 = new WPI_VictorSPX(MotorConstants.kLClm2);
-    private final WPI_VictorSPX Rmotor1 = new WPI_VictorSPX(MotorConstants.kRClm1);
-     private final WPI_VictorSPX Rmotor2 = new WPI_VictorSPX(MotorConstants.kRClm2);
+    
      PowerDistribution PowerDistribution = new PowerDistribution(1, ModuleType.kRev);
      
      //double current6 = PowerDistribution.getCurrent(6);
@@ -27,7 +26,7 @@ public class Climb extends SubsystemBase {
      //double current5 = PowerDistribution.getCurrent(5);
     
      //private final MotorControllerGroup left = new MotorControllerGroup(Lmotor1, Lmotor2);
-  public Climb() {}
+  public ClimbLe() {}
 
 // left claw goes up.
   public void clawsUpL(){
@@ -43,19 +42,7 @@ public class Climb extends SubsystemBase {
    
   }
 
-  // right claw goes up.
-  public void clawsUpR(){
-   
-    Rmotor1.set(0.5);
-    Rmotor2.set(0.5);
-  }
-
- // right claw goes down.
-  public void clawsDownR(){
-   
-    Rmotor1.set(-0.5);
-    Rmotor2.set(-0.5);
-  }
+ 
 
   // left claw stops moving.
   public void StopL(){
@@ -64,11 +51,7 @@ public class Climb extends SubsystemBase {
    
   }
 
-  // right claw stops moving.
-  public void StopR(){
-    Rmotor1.set(0);
-    Rmotor2.set(0);
-  }
+ 
    
   
   /**
@@ -100,8 +83,7 @@ public class Climb extends SubsystemBase {
     // This method will be called once per scheduler run
      SmartDashboard.putNumber("Left One Voltage", voltLeft1());
      SmartDashboard.putNumber("Left two Voltage", voltLeft2());
-     SmartDashboard.putNumber("Right One Voltage", voltRight1());
-      SmartDashboard.putNumber("Right two Voltage", voltRight2());
+     
   }
 
   @Override
@@ -116,12 +98,5 @@ public class Climb extends SubsystemBase {
     double voltLeft2 = PowerDistribution.getCurrent(6);
     return voltLeft2;
   }
-   public double voltRight1(){
-    double voltLeft1 = PowerDistribution.getCurrent(9);
-    return voltLeft1;
-  }
-  public double voltRight2(){
-    double voltLeft1 = PowerDistribution.getCurrent(10);
-    return voltLeft1;
-  }
+  
 }

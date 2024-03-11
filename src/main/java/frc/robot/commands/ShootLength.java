@@ -24,7 +24,7 @@ public class ShootLength extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-  m_Shooter.ShootEncoderReset();
+  
   m_Shooter.shoot();
   }
 
@@ -43,6 +43,6 @@ public class ShootLength extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return Math.abs(m_Shooter.getShootDistance()) >= m_Length;
+    return (true);
   }
 }

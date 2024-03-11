@@ -22,9 +22,9 @@ public class Pickup extends SubsystemBase {
   private WPI_VictorSPX goInOut = new WPI_VictorSPX(MotorConstants.kPick);
   private DoubleSolenoid Intake1;
  
-  private Encoder PickupEncoder;
+  
   public Pickup() {
-    PickupEncoder = new Encoder(3, 4, false, EncodingType.k4X);
+   
 
     Intake1 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kPFport1 , pneumaticportconstants.kPRport1);
     
@@ -56,13 +56,7 @@ public class Pickup extends SubsystemBase {
   public void Stop(){
     goInOut.set(0);
   }
-  public void PickEncoderReset() {
-    PickupEncoder.reset();
-}
 
-public double getPickDistance() {
-    return PickupEncoder.getDistance();
-}
 
   /**
    * Example command factory method.

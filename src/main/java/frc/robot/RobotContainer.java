@@ -34,7 +34,8 @@ import frc.robot.commands.ShootLength;
 import frc.robot.commands.DriveLength;
 
 //import subsystems
-import frc.robot.subsystems.Climb;
+import frc.robot.subsystems.ClimbLe;
+import frc.robot.subsystems.ClimbR;
 import frc.robot.subsystems.Pickup;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.DriveTrain;
@@ -56,7 +57,8 @@ public class RobotContainer {
   
   
   // subsystems
-    private final Climb m_Climb = new Climb();
+    private final ClimbLe m_ClimbLe = new ClimbLe();
+    private final ClimbR m_ClimbR = new ClimbR();
     private final Pickup m_Pickup = new Pickup();
     private final Shooter m_Shooter = new Shooter();
     private final DriveTrain m_robotDrive = new DriveTrain();
@@ -68,10 +70,10 @@ public class RobotContainer {
      SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   //Commands
-    private final armsDownL m_ArmsDownL = new armsDownL(m_Climb);
-    private final armsDownR m_ArmsDownR = new armsDownR(m_Climb);
-    private final armsUpL m_ArmsUpL = new armsUpL(m_Climb);
-    private final armsUpR m_ArmsUpR = new armsUpR(m_Climb);
+    private final armsDownL m_ArmsDownL = new armsDownL(m_ClimbLe);
+    private final armsDownR m_ArmsDownR = new armsDownR(m_ClimbR);
+    private final armsUpL m_ArmsUpL = new armsUpL(m_ClimbLe);
+    private final armsUpR m_ArmsUpR = new armsUpR(m_ClimbR);
     private final shootFast m_ShootSlow = new shootFast(m_Shooter);
     private final ReverseShot m_ReverseShot = new ReverseShot(m_Shooter);
     private final shootSlow m_Shootslow = new shootSlow(m_Shooter);

@@ -3,7 +3,8 @@
 // the WPILib BSD license file in the root directory of this project.
 
 package frc.robot.commands;
-import frc.robot.subsystems.Climb;
+import frc.robot.subsystems.ClimbLe;
+import frc.robot.subsystems.ClimbR;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.SwerveModule;
