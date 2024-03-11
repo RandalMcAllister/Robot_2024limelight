@@ -50,7 +50,6 @@ public final class Constants {
 
   }
   public static class SwerveConstants{
-    public static final double kWheelRadius = 0.05845; //Need to update
     public static final int kAngleEncoderResolution = 400; //see https://www.andymark.com/products/hall-effect-two-channel-encoder
     public static final int kDriveEncoderResolution = 4096; // neo brushless settings in rev can id setting
   
@@ -58,17 +57,19 @@ public final class Constants {
     public static final double kModuleMaxAngularAcceleration =
         2 * Math.PI; // radians per second squared
         
-    public static final double kWheelDiameterMeters = kWheelRadius * 2;
-    public static final int kDrivingMotorPinionTeeth = 14;
-    //public static final double kDrivingMotorReduction = (45.0 * 22) / (kDrivingMotorPinionTeeth * 15);
-    public static final double kDrivingMotorReduction = 2;
+    public static final double kWheelDiameterMeters = Units.inchesToMeters(4);
+    public static final int kDrivingMotorPinionTeeth = 12;
+    public static final double kDrivingMotorReduction = (40.0 * 20) / (kDrivingMotorPinionTeeth * 40);
     public static final double kDrivingEncoderPositionFactor = (kWheelDiameterMeters * Math.PI)
         / kDrivingMotorReduction; // meters
     public static final double kDrivingEncoderVelocityFactor = ((kWheelDiameterMeters * Math.PI)
         / kDrivingMotorReduction) / 60.0; // meters per second    
     public static final double driveGainP = 0.1;
-    public static final int driveGainI = 0;
-    public static final int driveGainD = 0;
+    public static final double driveGainI = 0;
+    public static final double driveGainD = 0;
+    public static final double turnGainP = 0.3;
+    public static final double turnGainI = 0;
+    public static final double turnGainD = 0;
   }
 
   public static class DriveConstants {
@@ -86,16 +87,19 @@ public final class Constants {
   }
 
   public static class ControlSystem {
+    // Driving motor CAN IDs
     public static final int kLeftFrontDrive = 2;
     public static final int kLeftBackDrive = 4;
     public static final int kRightFrontDrive = 1;
     public static final int kRightBackDrive = 3;
-    // Turning motors
+    // Turning motor CAN IDs
     public static final int kLeftFrontTurn = 5;
     public static final int kLeftBackTurn = 7;
     public static final int kRightFrontTurn = 6;
     public static final int kRightBackTurn = 8;
-// no idea if I should swap the A and Bs.
+
+    // Turning motor encoder channels
+    // no idea if I should swap the A and Bs.
     public static final int kLFturnA = 2;
     public static final int kLFturnB = 3;
     public static final int kLBturnA = 0;

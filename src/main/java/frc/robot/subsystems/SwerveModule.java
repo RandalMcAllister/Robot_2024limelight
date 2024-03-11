@@ -41,7 +41,7 @@ public class SwerveModule extends SubsystemBase {
 
   //public static final CANSparkMaxLowLevel.MotorType kBrushless;
 
-  private final PIDController m_turningPIDController = new PIDController(0.2, 0, 0);
+  private final PIDController m_turningPIDController = new PIDController(SwerveConstants.turnGainP, SwerveConstants.turnGainI, SwerveConstants.turnGainD);
 
   private double m_chassisAngularOffset = 0;
   private SwerveModuleState m_desiredState = new SwerveModuleState(0.0, new Rotation2d());
