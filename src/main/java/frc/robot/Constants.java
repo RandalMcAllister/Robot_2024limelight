@@ -19,14 +19,14 @@ public final class Constants {
   }
   public static class MotorConstants {
     // climbing motor channels.
-    public static final int kRClm1 = 11;
-    public static final int kRClm2 = 12;
-    public static final int kLClm1 = 9;
-    public static final int kLClm2 = 10;
+    public static final int kRClm1 = 16;
+    public static final int kRClm2 = 19;
+    public static final int kLClm1 = 18;
+    public static final int kLClm2 = 11;
     // shoot channel
-    public static final int kShoot = 13;
+    public static final int kShoot = 17;
     // pick up channel
-    public static final int kPick = 14;
+    public static final int kPick = 10;
   }
   public static class PneumaticsConstants{
     public static final int kModule1 = 1;
@@ -94,13 +94,13 @@ public final class Constants {
     public static final int kRightFrontDrive = 1;
     public static final int kRightBackDrive = 3;
     // Turning motor CAN IDs
-    public static final int kLeftFrontTurn = 5;
-    public static final int kLeftBackTurn = 7;
-    public static final int kRightFrontTurn = 6;
-    public static final int kRightBackTurn = 8;
+    public static final int kLeftFrontTurn = 12;
+    public static final int kLeftBackTurn = 14;
+    public static final int kRightFrontTurn = 13;
+    public static final int kRightBackTurn = 15;
 
     // Turning motor encoder channels
-    // no idea if I should swap the A and Bs.
+    
     public static final int kLFturnA = 2;
     public static final int kLFturnB = 3;
     public static final int kLBturnA = 0;
