@@ -20,8 +20,6 @@ import edu.wpi.first.math.kinematics.SwerveModulePosition;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.motorcontrol.MotorController;
-import edu.wpi.first.wpilibj.motorcontrol.VictorSP;
-
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 
@@ -179,7 +177,18 @@ public class SwerveModule extends SubsystemBase {
     double drive = m_driveEncoder.getVelocity();
     return drive;
   }
- 
+
+  public void DriveStop() {
+    m_driveMotor.set(0);
+    m_turningMotor.set(0);
+  }
+
+  public double wheelAngle() {
+    var angle = new Rotation2d(m_turningEncoder.getDistance());
+    double angleDeg = angle.getDegrees();
+    return angleDeg;
+  }
+  
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
