@@ -29,8 +29,8 @@ public final class Constants {
     public static final int kPick = 8;
   }
   public static class PneumaticsConstants{
-    public static final int kModule1 = 1;
-    public static final int kModule2 = 2;
+    public static final int kModule1 = 18;
+    //public static final int kModule2 = 2;
   }
   public static class pneumaticportconstants{
     // Pickup Piston
