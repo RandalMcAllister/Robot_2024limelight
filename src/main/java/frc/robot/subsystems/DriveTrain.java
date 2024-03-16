@@ -111,6 +111,11 @@ public class DriveTrain extends SubsystemBase {
     SmartDashboard.putNumber("Front Right Encoder Count", TurnCountFR());
     SmartDashboard.putNumber("Back Right Encoder Count", TurnCountBR());
 
+     //Display Wheel orientations
+     SmartDashboard.putNumber("FL Wheel Angle", wheelAngleFL());
+     SmartDashboard.putNumber("FR Wheel Angle", wheelAngleFR());
+     SmartDashboard.putNumber("BL Wheel Angle", wheelAngleBL());
+     SmartDashboard.putNumber("BR Wheel Angle", wheelAngleBR());
   }
 
   public final double getOdometryAngle()
@@ -138,7 +143,12 @@ public class DriveTrain extends SubsystemBase {
     double xSpeedDelivered = xSpeedCommanded * DriveConstants.kMaxSpeed;
     double ySpeedDelivered = ySpeedCommanded * DriveConstants.kMaxSpeed;
     double rotDelivered = m_currentRotation * DriveConstants.kMaxAngularSpeed;
-    if(xSpeed + ySpeed != 0) {System.out.printf("Field %b, x=%f, y=%f, rot=%f\n", fieldRelative, xSpeed, ySpeed, zRot);}
+    
+    SmartDashboard.putNumber("X Speed", xSpeed);
+    SmartDashboard.putNumber("Y Speed", ySpeed);
+    SmartDashboard.putNumber("Z Rot ", zRot);
+    SmartDashboard.putBoolean("Field Relative ", fieldRelative);
+    //if(xSpeed + ySpeed != 0) {System.out.printf("Field %b, x=%f, y=%f, rot=%f\n", fieldRelative, xSpeed, ySpeed, zRot);}
 
     var swerveModuleStates = m_kinematics.toSwerveModuleStates(
         fieldRelative
@@ -160,6 +170,7 @@ public class DriveTrain extends SubsystemBase {
     m_backRight.resetEncoders();
   }
 
+  // Measure turing encoder counts
   public double TurnCountFR() {
     double turningOut = m_frontRight.TurnOutput();
     return turningOut;
@@ -180,6 +191,7 @@ public class DriveTrain extends SubsystemBase {
     return turningOut;
   }
 
+  // Measure driving wheel speeds
   public double DriveVelFL() {
     double driveVelFL = m_frontLeft.DriveOutput();
     return driveVelFL;
@@ -200,6 +212,39 @@ public class DriveTrain extends SubsystemBase {
     return driveVelBR;
   }
 
+  // Calculate wheel angles
+  public double wheelAngleFL() {
+    double angle = m_frontLeft.wheelAngle();
+    return angle;
+  }
+  public double wheelAngleFR() {
+    double angle = m_frontRight.wheelAngle();
+    return angle;
+  }
+  public double wheelAngleBL() {
+    double angle = m_backLeft.wheelAngle();
+    return angle;
+  }
+  public double wheelAngleBR() {
+    double angle = m_backRight.wheelAngle();
+    return angle;
+  }
+
+/*
+  public void DriveForward() {
+    m_backLeft.DriveForward();
+    m_frontLeft.DriveForward();
+    m_backRight.DriveForward();
+    m_frontRight.DriveForward();
+  }
+*/
+  public void DriveStop() {
+    m_backLeft.DriveStop();
+    m_frontLeft.DriveStop();
+    m_backRight.DriveStop();
+    m_frontRight.DriveStop();
+  }
+  
   /**
    * Example command factory method.
    *

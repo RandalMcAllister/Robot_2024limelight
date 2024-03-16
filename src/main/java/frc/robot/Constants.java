@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.math.util.Units;
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -25,14 +26,14 @@ public final class Constants {
     // shoot channel
     public static final int kShoot = 17;
     // pick up channel
-    public static final int kPick = 8;
+    public static final int kPick = 14;
   }
   public static class PneumaticsConstants{
     public static final int kModule1 = 1;
     public static final int kModule2 = 2;
   }
   public static class pneumaticportconstants{
-    // Pickup Droper
+    // Pickup Piston
     public static final int kPFport1 =1;
     public static final int kPRport1 =2;
     
@@ -50,7 +51,6 @@ public final class Constants {
 
   }
   public static class SwerveConstants{
-    public static final double kWheelRadius = 0.05845; //Need to update
     public static final int kAngleEncoderResolution = 400; //see https://www.andymark.com/products/hall-effect-two-channel-encoder
     public static final int kDriveEncoderResolution = 4096; // neo brushless settings in rev can id setting
   
@@ -58,17 +58,19 @@ public final class Constants {
     public static final double kModuleMaxAngularAcceleration =
         2 * Math.PI; // radians per second squared
         
-    public static final double kWheelDiameterMeters = kWheelRadius * 2;
-    public static final int kDrivingMotorPinionTeeth = 14;
-    //public static final double kDrivingMotorReduction = (45.0 * 22) / (kDrivingMotorPinionTeeth * 15);
-    public static final double kDrivingMotorReduction = 2;
+    public static final double kWheelDiameterMeters = Units.inchesToMeters(4);
+    public static final int kDrivingMotorPinionTeeth = 12;
+    public static final double kDrivingMotorReduction = (40.0 * 20) / (kDrivingMotorPinionTeeth * 40);
     public static final double kDrivingEncoderPositionFactor = (kWheelDiameterMeters * Math.PI)
         / kDrivingMotorReduction; // meters
     public static final double kDrivingEncoderVelocityFactor = ((kWheelDiameterMeters * Math.PI)
         / kDrivingMotorReduction) / 60.0; // meters per second    
-    public static final int driveGainP = 1;
-    public static final int driveGainI = 0;
-    public static final int driveGainD = 0;
+    public static final double driveGainP = 0.1;
+    public static final double driveGainI = 0;
+    public static final double driveGainD = 0;
+    public static final double turnGainP = 0.3;
+    public static final double turnGainI = 0;
+    public static final double turnGainD = 0;
   }
 
   public static class DriveConstants {
@@ -86,6 +88,7 @@ public final class Constants {
   }
 
   public static class ControlSystem {
+    // Driving motor CAN IDs
     public static final int kLeftFrontDrive = 2;
     public static final int kLeftBackDrive = 4;
     public static final int kRightFrontDrive = 1;
