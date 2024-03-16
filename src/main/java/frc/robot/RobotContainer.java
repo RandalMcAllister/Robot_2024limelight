@@ -79,7 +79,8 @@ public class RobotContainer {
     private final shootFast m_ShootSlow = new shootFast(m_Shooter);
     private final ReverseShot m_ReverseShot = new ReverseShot(m_Shooter);
     private final shootSlow m_Shootslow = new shootSlow(m_Shooter);
-    
+    private final aimAmp m_aimAmp = new aimAmp(m_robotDrive);
+    private final aimSpeaker m_aimSpeaker = new aimSpeaker(m_robotDrive);
     private final rollerSpinIn m_LowIn = new rollerSpinIn(m_Pickup);
     private final rollorSpinOut m_LowOut = new rollorSpinOut(m_Pickup);
     // Default
@@ -145,8 +146,8 @@ public class RobotContainer {
     lowIn.whileTrue(m_LowIn);
     lowOut.whileTrue(m_LowOut);
     PickupPistonOn.toggleOnTrue(new StartEndCommand(m_Pickup::drop, m_Pickup::undrop, m_Pickup));
-    aimAmp.whileTrue(m_aimAmp);
-    aimSpeaker.whileTrue(m_aimSpeaker);
+    aimAmp.toggleOnTrue(m_aimAmp);
+    aimSpeaker.toggleOnTrue(m_aimSpeaker);
     
 
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
