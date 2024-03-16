@@ -26,7 +26,7 @@ public final class Constants {
     // shoot channel
     public static final int kShoot = 17;
     // pick up channel
-    public static final int kPick = 14;
+    public static final int kPick = 8;
   }
   public static class PneumaticsConstants{
     public static final int kModule1 = 1;
