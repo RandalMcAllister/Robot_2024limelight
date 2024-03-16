@@ -12,6 +12,8 @@ import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import edu.wpi.first.wpilibj.PowerDistribution;
+import edu.wpi.first.wpilibj.PowerDistribution.ModuleType;
 import frc.robot.Constants.PneumaticsConstants;
 import frc.robot.Constants.pneumaticportconstants;
 import frc.robot.Constants.MotorConstants;
@@ -23,13 +25,13 @@ public class Shooter extends SubsystemBase {
   private WPI_VictorSPX shootSpeed = new WPI_VictorSPX( MotorConstants.kShoot );
   private DoubleSolenoid  ShootDown1 ;
   private DoubleSolenoid  ShootDown2 ;
-  private Encoder ShootEncoder ;
+  
 
   public Shooter() {
-    ShootEncoder = new Encoder(1, 2, false, EncodingType.k4X);
+    
 
-    ShootDown1 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kport5 , pneumaticportconstants.kport6);
-    ShootDown2 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kport7 , pneumaticportconstants.kport8);
+    ShootDown1 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kSFport1 , pneumaticportconstants.kSRport1);
+    ShootDown2 = new DoubleSolenoid(PneumaticsConstants.kModule1, PneumaticsModuleType.CTREPCM, pneumaticportconstants.kSFport2, pneumaticportconstants.kSRport2);
   }
 
    // pushes piston at shooter out.
@@ -63,13 +65,7 @@ public void shootReverse(){
     shootSpeed.set(0);
   }
 
-  public void ShootEncoderReset() {
-    ShootEncoder.reset();
-}
-
-public double getShootDistance() {
-    return ShootEncoder.getDistance();
-}
+ 
   
   /**
    * Example command factory method.
