@@ -30,15 +30,14 @@ public class ClimbLe extends SubsystemBase {
 
 // left claw goes up.
   public void clawsUpL(){
-    Lmotor1.set(0.5);
-    Lmotor2.set(0.5);
-   
+    Lmotor1.set(-0.5);
+    Lmotor2.set(-0.5);
   }
 
 // left claw goes down.
   public void clawsDownL(){
-    Lmotor1.set(-0.5);
-    Lmotor2.set(-0.5);
+    Lmotor1.set(0.5);
+    Lmotor2.set(0.5);
    
   }
 
