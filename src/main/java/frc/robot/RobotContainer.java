@@ -100,8 +100,8 @@ public class RobotContainer {
     private JoystickButton lowIn = new JoystickButton(buttonBoard, 8);
     private JoystickButton lowOut = new JoystickButton(buttonBoard, 10);
     private JoystickButton PickupPistonOn = new JoystickButton(buttonBoard, 9);
-    private JoystickButton aimAmp = new JoystickButton(buttonBoard, 10);
-    private JoystickButton aimSpeaker = new JoystickButton(buttonBoard, 11);
+    private JoystickButton aimAmp = new JoystickButton(buttonBoard, 13);
+    private JoystickButton aimSpeaker = new JoystickButton(buttonBoard, 12);
        // Robot maker code from last year, may or may not be needed. 
     //m_chooser.setDefaultOption("Autonomous Command", new Autos(m_driveTrain, m_Shooter, m_Pickup);
 
