@@ -4,6 +4,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.math.util.Units;
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -32,16 +33,15 @@ public final class Constants {
     public static final int kModule2 = 2;
   }
   public static class pneumaticportconstants{
-    // Pickup Droper
+    // Pickup Piston
     public static final int kPFport1 =1;
     public static final int kPRport1 =2;
-    public static final int kPFport2 =3;
-    public static final int kPRport2 =4;
+    
     // Shooter Dump
-    public static final int kSFport1 =5;
-    public static final int kSRport1 =6;
-    public static final int kSFport2 =7;
-    public static final int kSRport2 =8;
+    public static final int kSFport1 =3;
+    public static final int kSRport1 =4;
+    public static final int kSFport2 =5;
+    public static final int kSRport2 =6;
   }
   public static class AutoConstants{
     public static final double kDriveFor = 4;
@@ -67,9 +67,12 @@ public final class Constants {
         / kDrivingMotorReduction; // meters
     public static final double kDrivingEncoderVelocityFactor = ((kWheelDiameterMeters * Math.PI)
         / kDrivingMotorReduction) / 60.0; // meters per second    
-    public static final int driveGainP = 1;
-    public static final int driveGainI = 0;
-    public static final int driveGainD = 0;
+        public static final double driveGainP = 0.1;
+        public static final double driveGainI = 0;
+        public static final double driveGainD = 0;
+        public static final double turnGainP = 0.3;
+        public static final double turnGainI = 0;
+        public static final double turnGainD = 0;
   }
 
   public static class DriveConstants {
@@ -89,6 +92,7 @@ public final class Constants {
     public static final int kLeftBackDrive = 4;
     public static final int kRightFrontDrive = 1;
     public static final int kRightBackDrive = 3;
+    // Turning motors
     public static final int kLeftFrontTurn = 10;
     public static final int kLeftBackTurn = 14;
     public static final int kRightFrontTurn = 13;

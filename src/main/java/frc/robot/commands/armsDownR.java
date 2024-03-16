@@ -4,24 +4,24 @@
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.Climb;
+import frc.robot.subsystems.ClimbR;
 import edu.wpi.first.wpilibj2.command.Command;
 
 
 /** An example command that uses an example subsystem. */
 public class armsDownR extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final Climb m_Climb;
+  private final ClimbR m_Climb;
 
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public armsDownR(Climb Climb) {
-    m_Climb = Climb;
+  public armsDownR(ClimbR ClimbR) {
+    m_Climb = ClimbR;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Climb);
+    addRequirements(ClimbR);
   }
 
   // Called when the command is initially scheduled.
