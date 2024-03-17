@@ -29,8 +29,8 @@ public final class Constants {
     public static final int kPick = 8;
   }
   public static class PneumaticsConstants{
-    public static final int kModule1 = 1;
-    public static final int kModule2 = 2;
+    public static final int kModule1 = 18;
+    //public static final int kModule2 = 2;
   }
   public static class pneumaticportconstants{
     // Pickup Piston
@@ -83,7 +83,7 @@ public final class Constants {
     public static final double kBackLeftChassisAngularOffset = 0;
     public static final double kBackRightChassisAngularOffset = 0;
     // just to make the runcommand work in robot container, I think this is the wanted value.
-    public static final boolean kTeleField = false;
+    public static final boolean kTeleField = true;
 
   }
 
